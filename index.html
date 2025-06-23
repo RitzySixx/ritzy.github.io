@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritzy's Tools - Professional Utilities</title>
+    <title>Ritzy's Tools | Professional Utilities</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
     <style>
         :root {
             --bg-dark: #0f1117;
@@ -15,7 +16,6 @@
             --text-secondary: #a1a9c0;
             --accent: #ff7bac;
             --success: #4caf50;
-            --warning: #ff9800;
             --border: #2a2f3f;
             --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             --transition: all 0.3s ease;
@@ -35,6 +35,7 @@
             min-height: 100vh;
             padding: 0;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(29, 33, 45, 0.5) 0%, transparent 50%);
         }
 
         .container {
@@ -50,6 +51,7 @@
             border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            background-image: linear-gradient(to bottom, var(--bg-header) 0%, rgba(10, 12, 18, 0.8) 100%);
         }
 
         header::before {
@@ -63,6 +65,13 @@
             pointer-events: none;
         }
 
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         h1 {
             font-size: 3.2rem;
             margin-bottom: 0.5rem;
@@ -70,29 +79,25 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 2;
             letter-spacing: -0.5px;
+            font-weight: 700;
         }
 
         .subtitle {
             font-size: 1.3rem;
             color: var(--text-secondary);
-            max-width: 700px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
             font-weight: 400;
             line-height: 1.7;
+            max-width: 700px;
         }
 
         .stats {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 1.8rem;
-            position: relative;
-            z-index: 2;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .stat-item {
@@ -101,12 +106,14 @@
             padding: 15px 28px;
             border-radius: 12px;
             backdrop-filter: blur(5px);
+            min-width: 140px;
         }
 
         .stat-value {
             font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary);
+            line-height: 1;
         }
 
         .stat-label {
@@ -114,7 +121,7 @@
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         main {
@@ -169,14 +176,30 @@
             padding: 1.8rem;
             border-bottom: 1px solid var(--border);
             background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tool-icon {
+            font-size: 2.2rem;
+            background: rgba(93, 107, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tool-info {
+            flex-grow: 1;
         }
 
         .card-header h3 {
             font-size: 1.7rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            margin-bottom: 0.3rem;
             font-weight: 600;
         }
 
@@ -255,6 +278,7 @@
             text-align: center;
             border-top: 1px solid var(--border);
             margin-top: 2rem;
+            background-image: linear-gradient(to bottom, rgba(10, 12, 18, 0.8) 0%, var(--bg-header) 100%);
         }
 
         .footer-content {
@@ -272,25 +296,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
         .copyright {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -301,30 +306,34 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.6rem; }
             .subtitle { font-size: 1.15rem; }
-            .stats { flex-direction: column; align-items: center; }
             .tools-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 1.9rem; }
+            .stat-item { padding: 12px 20px; }
+            .card-header { flex-direction: column; text-align: center; }
+            .tool-icon { margin-bottom: 15px; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Ritzy's Tools</h1>
-            <p class="subtitle">Professional utilities for developers, IT professionals, and security experts</p>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value">24K+</div>
-                    <div class="stat-label">Downloads</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">18</div>
-                    <div class="stat-label">Tools</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">98%</div>
-                    <div class="stat-label">Satisfaction</div>
+            <div class="header-content">
+                <h1>Ritzy's Tools</h1>
+                <p class="subtitle">Professional utilities for developers, IT professionals, and security experts</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">24K+</div>
+                        <div class="stat-label">Downloads</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Satisfaction</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -337,8 +346,11 @@
             <!-- Tool 1 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3>Process Memory Scanner</h3>
-                    <span class="version">v2.1.5</span>
+                    <div class="tool-icon">🔍</div>
+                    <div class="tool-info">
+                        <h3>Process Memory Scanner</h3>
+                        <span class="version">v2.1.5</span>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p>Advanced memory scanning utility that detects hidden processes, malicious code injections, and suspicious memory patterns with precision and minimal system impact.</p>
@@ -359,8 +371,11 @@
             <!-- Tool 2 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3>Registry Executions</h3>
-                    <span class="version">v1.4.3</span>
+                    <div class="tool-icon">📋</div>
+                    <div class="tool-info">
+                        <h3>Registry Executions</h3>
+                        <span class="version">v1.4.3</span>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p>Comprehensive registry analysis tool that tracks program executions, persistence mechanisms, and system changes with detailed historical context.</p>
@@ -381,8 +396,11 @@
             <!-- Tool 3 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3>Secure Data Analyzer</h3>
-                    <span class="version">v3.0.2</span>
+                    <div class="tool-icon">🔒</div>
+                    <div class="tool-info">
+                        <h3>Secure Data Analyzer</h3>
+                        <span class="version">v3.0.2</span>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p>Advanced data analysis tool with encryption capabilities for secure processing of sensitive information and compliance-ready reporting.</p>
@@ -403,19 +421,11 @@
     </main>
     
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">Ritzy's Tools</div>
-            <p>Professional-grade utilities for security professionals, developers, and IT administrators.</p>
-            
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Tools</a>
-                <a href="#">Documentation</a>
-                <a href="#">Support</a>
-                <a href="#">Contact</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Ritzy's Tools</div>
+                <p class="copyright">© 2023 Ritzy's Tools. All rights reserved.<br>Professional utilities for security professionals, developers, and IT administrators.</p>
             </div>
-            
-            <p class="copyright">© 2023 Ritzy's Tools. All rights reserved.<br>Designed for professionals who demand excellence.</p>
         </div>
     </footer>
     
@@ -438,6 +448,20 @@
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(card);
+            });
+            
+            // Header animation
+            const header = document.querySelector('header');
+            let prevScrollPos = window.pageYOffset;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    header.style.transform = 'translateY(0)';
+                } else {
+                    header.style.transform = 'translateY(-100%)';
+                }
+                prevScrollPos = currentScrollPos;
             });
         });
     </script>
