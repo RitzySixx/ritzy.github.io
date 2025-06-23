@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritzy's Tools | Professional Utilities</title>
+    <title>Ritzy's Forensic Tools | Professional Utilities</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
     <style>
         :root {
-            --bg-dark: #0f1117;
-            --bg-card: #1a1d26;
-            --bg-header: #0a0c12;
+            --bg-dark: #0a0c15;
+            --bg-card: #161a26;
+            --bg-header: #07080f;
             --primary: #5d6bff;
             --primary-hover: #4a59f5;
             --text-primary: #eef1f8;
             --text-secondary: #a1a9c0;
             --accent: #ff7bac;
             --success: #4caf50;
-            --border: #2a2f3f;
+            --warning: #ff9800;
+            --border: #1e2335;
             --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             --transition: all 0.3s ease;
         }
@@ -35,7 +36,7 @@
             min-height: 100vh;
             padding: 0;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 15% 50%, rgba(29, 33, 45, 0.5) 0%, transparent 50%);
+            background-image: radial-gradient(circle at 15% 50%, rgba(20, 23, 36, 0.5) 0%, transparent 50%);
         }
 
         .container {
@@ -51,7 +52,7 @@
             border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden;
-            background-image: linear-gradient(to bottom, var(--bg-header) 0%, rgba(10, 12, 18, 0.8) 100%);
+            background-image: linear-gradient(to bottom, var(--bg-header) 0%, rgba(7, 8, 15, 0.8) 100%);
         }
 
         header::before {
@@ -101,7 +102,7 @@
         }
 
         .stat-item {
-            background: rgba(26, 29, 38, 0.8);
+            background: rgba(22, 26, 38, 0.8);
             border: 1px solid var(--border);
             padding: 15px 28px;
             border-radius: 12px;
@@ -220,11 +221,10 @@
             flex-direction: column;
         }
 
-        .card-body p {
+        .tool-description {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
-            flex-grow: 1;
         }
 
         .features {
@@ -237,6 +237,7 @@
             padding-left: 28px;
             position: relative;
             color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .features li::before {
@@ -245,6 +246,19 @@
             left: 0;
             color: var(--success);
             font-weight: bold;
+        }
+
+        .requirements {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 3px solid var(--primary);
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .requirements strong {
+            color: var(--primary);
         }
 
         .download-btn {
@@ -264,7 +278,7 @@
             border: none;
             cursor: pointer;
             font-family: inherit;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .download-btn:hover {
@@ -278,7 +292,7 @@
             text-align: center;
             border-top: 1px solid var(--border);
             margin-top: 2rem;
-            background-image: linear-gradient(to bottom, rgba(10, 12, 18, 0.8) 0%, var(--bg-header) 100%);
+            background-image: linear-gradient(to bottom, rgba(7, 8, 15, 0.8) 0%, var(--bg-header) 100%);
         }
 
         .footer-content {
@@ -318,8 +332,8 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1>Ritzy's Tools</h1>
-                <p class="subtitle">Professional utilities for developers, IT professionals, and security experts</p>
+                <h1>Ritzy's Forensic Tools</h1>
+                <p class="subtitle">Professional utilities for digital forensics, incident response, and security analysis</p>
                 
                 <div class="stats">
                     <div class="stat-item">
@@ -340,35 +354,41 @@
     </header>
     
     <main class="container">
-        <h2 class="section-title">Professional Tools</h2>
+        <h2 class="section-title">Professional Forensic Tools</h2>
         
         <div class="tools-grid">
-            <!-- Tool 1 -->
+            <!-- Tool 1: Process Executions Analyzer -->
             <div class="tool-card">
                 <div class="card-header">
                     <div class="tool-icon">🔍</div>
                     <div class="tool-info">
-                        <h3>Process Memory Scanner</h3>
+                        <h3>Service Execution Analyzer</h3>
                         <span class="version">v2.1.5</span>
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>Advanced memory scanning utility that detects hidden processes, malicious code injections, and suspicious memory patterns with precision and minimal system impact.</p>
+                    <p class="tool-description">A Windows forensic tool that scans process memory to discover file paths and detect potentially deleted files. Essential for incident response, malware analysis, and digital forensics investigations.</p>
                     
                     <ul class="features">
-                        <li>Deep process analysis with heuristic detection</li>
-                        <li>Real-time memory monitoring</li>
-                        <li>Exportable reports in multiple formats</li>
-                        <li>Low system footprint during operation</li>
+                        <li>Extracts file paths from process memory spaces</li>
+                        <li>Scans critical Windows services (Diagtrack, PcaSvc, etc.)</li>
+                        <li>Checks if discovered files are present or deleted</li>
+                        <li>Color-coded output with visual indicators</li>
+                        <li>Export functionality to timestamped text files</li>
+                        <li>Service name resolution for svchost.exe processes</li>
                     </ul>
                     
-                    <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/996448032/9dfbff7b-5901-4e10-aad5-87c9c2948a6f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T204437Z&X-Amz-Expires=1800&X-Amz-Signature=ff540916afaf355440831af1e569be3d207886b8f82272ca9ac96a4deee8e1e0&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DProcessMemoryScanner.exe&response-content-type=application%2Foctet-stream" class="download-btn">
+                    <div class="requirements">
+                        <strong>Requirements:</strong> Windows 7/Server 2008 or later, Administrator privileges, Visual C++ Runtime, 4GB+ RAM recommended
+                    </div>
+                    
+                    <a href="https://github.com/ritzysixx/Process-Executions/releases/download/V1.1.5/ProcessMemoryScanner.exe" class="download-btn">
                         Download Now (Windows)
                     </a>
                 </div>
             </div>
             
-            <!-- Tool 2 -->
+            <!-- Tool 2: Registry Executions -->
             <div class="tool-card">
                 <div class="card-header">
                     <div class="tool-icon">📋</div>
@@ -378,42 +398,54 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>Comprehensive registry analysis tool that tracks program executions, persistence mechanisms, and system changes with detailed historical context.</p>
+                    <p class="tool-description">Lists cached programs in the registry with file metadata and existence checks. Provides powerful filtering and context menu options for forensic analysis.</p>
                     
                     <ul class="features">
-                        <li>Historical execution timeline visualization</li>
-                        <li>Autorun and persistence mechanism detection</li>
-                        <li>Signature validation and hash checking</li>
-                        <li>Custom filtering and advanced search</li>
+                        <li>Lists cached programs with file metadata (creation/modification dates)</li>
+                        <li>Dark and light theme toggle for user preference</li>
+                        <li>Advanced filtering options for targeted analysis</li>
+                        <li>Context menu for folder access, file execution, and properties</li>
+                        <li>Scans multiple registry locations for execution traces</li>
+                        <li>Supports AppCompatFlags, MuiCache, RecentDocs, and RunMRU keys</li>
                     </ul>
                     
-                    <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/996449008/145ffbfc-a930-48a4-a38a-5a611d379d1a?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T204427Z&X-Amz-Expires=1800&X-Amz-Signature=6ac05bf293a90d7198515434f50ba15afd947d46941ed0004f4e2154f0b9cebd&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DRegistry.Executions.exe&response-content-type=application%2Foctet-stream" class="download-btn">
+                    <div class="requirements">
+                        <strong>Registry Locations Scanned:</strong> AppCompatFlags, Layers, MuiCache, RecentDocs, RunMRU, UserAssist, and more
+                    </div>
+                    
+                    <a href="https://github.com/ritzysixx/Registry-Executions/releases/download/Executions/Registry.Executions.exe" class="download-btn">
                         Download Now (Windows)
                     </a>
                 </div>
             </div>
             
-            <!-- Tool 3 -->
+            <!-- Tool 3: DMA Catcher -->
             <div class="tool-card">
                 <div class="card-header">
-                    <div class="tool-icon">🔒</div>
+                    <div class="tool-icon">🛡️</div>
                     <div class="tool-info">
-                        <h3>Secure Data Analyzer</h3>
-                        <span class="version">v3.0.2</span>
+                        <h3>DMA Catcher</h3>
+                        <span class="version">v1.0.0</span>
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>Advanced data analysis tool with encryption capabilities for secure processing of sensitive information and compliance-ready reporting.</p>
+                    <p class="tool-description">PowerShell script to detect DMA-capable devices and validate them with DeviceHunt. Identifies potential security risks from USB and PCI hardware.</p>
                     
                     <ul class="features">
-                        <li>256-bit AES encryption for all operations</li>
-                        <li>Secure data parsing and extraction tools</li>
-                        <li>Customizable analysis modules</li>
-                        <li>Compliance-ready reporting formats</li>
+                        <li>Scans all connected devices via Win32_PnPEntity</li>
+                        <li>Classifies USB, PCI, and other device types</li>
+                        <li>Validates devices with DeviceHunt using vendor/product IDs</li>
+                        <li>Automatically manages working directory at C:\ss5</li>
+                        <li>Saves comprehensive logs to DMA_Info.txt</li>
+                        <li>Generates direct links to DeviceHunt for further research</li>
                     </ul>
                     
-                    <a href="https://github.com/ritzy/secure-data-analyzer/releases/latest/download/SecureDataAnalyzer.exe" class="download-btn">
-                        Download Now (Windows)
+                    <div class="requirements">
+                        <strong>Usage:</strong> Run PowerShell as Administrator, paste and execute script, review DMA_Info.txt
+                    </div>
+                    
+                    <a href="https://github.com/ritzysixx/dma-catcher/releases/download/V1.0.0/DMA_Catcher.ps1" class="download-btn">
+                        Download Now (PowerShell)
                     </a>
                 </div>
             </div>
@@ -423,8 +455,8 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Ritzy's Tools</div>
-                <p class="copyright">© 2023 Ritzy's Tools. All rights reserved.<br>Professional utilities for security professionals, developers, and IT administrators.</p>
+                <div class="footer-logo">Ritzy's Forensic Tools</div>
+                <p class="copyright">© 2023 Ritzy's Forensic Tools. All rights reserved.<br>Professional utilities for digital forensics and security professionals.</p>
             </div>
         </div>
     </footer>
