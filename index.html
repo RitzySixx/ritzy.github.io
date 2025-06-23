@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritzy's Tools - Professional Utilities</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
     <style>
         :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --bg-header: #0d0d0d;
-            --primary: #646cff;
-            --primary-hover: #535bf2;
-            --text-primary: #f0f0f0;
-            --text-secondary: #b0b0b0;
+            --bg-dark: #0f1117;
+            --bg-card: #1a1d26;
+            --bg-header: #0a0c12;
+            --primary: #5d6bff;
+            --primary-hover: #4a59f5;
+            --text-primary: #eef1f8;
+            --text-secondary: #a1a9c0;
             --accent: #ff7bac;
             --success: #4caf50;
             --warning: #ff9800;
-            --border: #333;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --border: #2a2f3f;
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             --transition: all 0.3s ease;
         }
 
@@ -46,7 +45,7 @@
 
         header {
             background: var(--bg-header);
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             border-bottom: 1px solid var(--border);
             position: relative;
@@ -60,12 +59,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(100, 108, 255, 0.1), transparent 70%);
+            background: radial-gradient(circle at top right, rgba(93, 107, 255, 0.1), transparent 70%);
             pointer-events: none;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -73,36 +72,39 @@
             -webkit-text-fill-color: transparent;
             position: relative;
             z-index: 2;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            font-weight: 400;
+            line-height: 1.7;
         }
 
         .stats {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
             position: relative;
             z-index: 2;
         }
 
         .stat-item {
-            background: rgba(30, 30, 30, 0.7);
+            background: rgba(26, 29, 38, 0.8);
             border: 1px solid var(--border);
-            padding: 12px 24px;
+            padding: 15px 28px;
             border-radius: 12px;
             backdrop-filter: blur(5px);
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary);
         }
@@ -111,7 +113,8 @@
             font-size: 0.9rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
         }
 
         main {
@@ -119,11 +122,12 @@
         }
 
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
+            font-size: 2.1rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             color: var(--text-primary);
             position: relative;
+            font-weight: 600;
         }
 
         .section-title::after {
@@ -132,7 +136,7 @@
             width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            margin: 10px auto;
+            margin: 15px auto;
             border-radius: 2px;
         }
 
@@ -156,55 +160,48 @@
         }
 
         .tool-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: rgba(100, 108, 255, 0.3);
+            border-color: rgba(93, 107, 255, 0.3);
         }
 
         .card-header {
-            padding: 1.5rem;
+            padding: 1.8rem;
             border-bottom: 1px solid var(--border);
             background: rgba(0, 0, 0, 0.2);
         }
 
         .card-header h3 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-
-        .card-header h3 .icon {
-            background: rgba(100, 108, 255, 0.1);
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .version {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
         }
 
         .card-body {
-            padding: 1.5rem;
+            padding: 1.8rem;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-body p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            flex-grow: 1;
         }
 
         .features {
@@ -234,23 +231,22 @@
             gap: 10px;
             background: var(--primary);
             color: white;
-            padding: 14px 20px;
+            padding: 15px 20px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: var(--transition);
-            margin-top: auto;
             text-align: center;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 10px;
         }
 
         .download-btn:hover {
             background: var(--primary-hover);
-            transform: scale(1.03);
-        }
-
-        .download-btn .icon {
-            font-size: 1.3rem;
+            transform: scale(1.02);
         }
 
         footer {
@@ -267,7 +263,7 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -281,12 +277,14 @@
             justify-content: center;
             gap: 2rem;
             margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: var(--transition);
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -297,13 +295,15 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             margin-top: 1.5rem;
+            line-height: 1.7;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .subtitle { font-size: 1.2rem; }
+            h1 { font-size: 2.6rem; }
+            .subtitle { font-size: 1.15rem; }
             .stats { flex-direction: column; align-items: center; }
             .tools-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.9rem; }
         }
     </style>
 </head>
@@ -331,27 +331,27 @@
     </header>
     
     <main class="container">
-        <h2 class="section-title">Featured Tools</h2>
+        <h2 class="section-title">Professional Tools</h2>
         
         <div class="tools-grid">
             <!-- Tool 1 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3><span class="icon">🔍</span> Process Memory Scanner</h3>
+                    <h3>Process Memory Scanner</h3>
                     <span class="version">v2.1.5</span>
                 </div>
                 <div class="card-body">
-                    <p>Advanced memory scanning utility that detects hidden processes, malicious code injections, and suspicious memory patterns.</p>
+                    <p>Advanced memory scanning utility that detects hidden processes, malicious code injections, and suspicious memory patterns with precision and minimal system impact.</p>
                     
                     <ul class="features">
                         <li>Deep process analysis with heuristic detection</li>
                         <li>Real-time memory monitoring</li>
                         <li>Exportable reports in multiple formats</li>
-                        <li>Low system footprint</li>
+                        <li>Low system footprint during operation</li>
                     </ul>
                     
                     <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/996448032/9dfbff7b-5901-4e10-aad5-87c9c2948a6f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T204437Z&X-Amz-Expires=1800&X-Amz-Signature=ff540916afaf355440831af1e569be3d207886b8f82272ca9ac96a4deee8e1e0&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DProcessMemoryScanner.exe&response-content-type=application%2Foctet-stream" class="download-btn">
-                        <span class="icon">⬇️</span> Download Now (Windows)
+                        Download Now (Windows)
                     </a>
                 </div>
             </div>
@@ -359,21 +359,21 @@
             <!-- Tool 2 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3><span class="icon">📋</span> Registry Executions</h3>
+                    <h3>Registry Executions</h3>
                     <span class="version">v1.4.3</span>
                 </div>
                 <div class="card-body">
-                    <p>Comprehensive registry analysis tool that tracks program executions, persistence mechanisms, and system changes.</p>
+                    <p>Comprehensive registry analysis tool that tracks program executions, persistence mechanisms, and system changes with detailed historical context.</p>
                     
                     <ul class="features">
-                        <li>Historical execution timeline</li>
-                        <li>Autorun and persistence detection</li>
+                        <li>Historical execution timeline visualization</li>
+                        <li>Autorun and persistence mechanism detection</li>
                         <li>Signature validation and hash checking</li>
-                        <li>Custom filtering and search capabilities</li>
+                        <li>Custom filtering and advanced search</li>
                     </ul>
                     
                     <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/996449008/145ffbfc-a930-48a4-a38a-5a611d379d1a?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T204427Z&X-Amz-Expires=1800&X-Amz-Signature=6ac05bf293a90d7198515434f50ba15afd947d46941ed0004f4e2154f0b9cebd&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3DRegistry.Executions.exe&response-content-type=application%2Foctet-stream" class="download-btn">
-                        <span class="icon">⬇️</span> Download Now (Windows)
+                        Download Now (Windows)
                     </a>
                 </div>
             </div>
@@ -381,69 +381,21 @@
             <!-- Tool 3 -->
             <div class="tool-card">
                 <div class="card-header">
-                    <h3><span class="icon">🔒</span> Secure Data Analyzer</h3>
+                    <h3>Secure Data Analyzer</h3>
                     <span class="version">v3.0.2</span>
                 </div>
                 <div class="card-body">
-                    <p>Advanced data analysis tool with encryption capabilities for secure processing of sensitive information.</p>
+                    <p>Advanced data analysis tool with encryption capabilities for secure processing of sensitive information and compliance-ready reporting.</p>
                     
                     <ul class="features">
-                        <li>256-bit AES encryption</li>
-                        <li>Secure data parsing and extraction</li>
-                        <li>Custom analysis modules</li>
-                        <li>Compliance-ready reporting</li>
+                        <li>256-bit AES encryption for all operations</li>
+                        <li>Secure data parsing and extraction tools</li>
+                        <li>Customizable analysis modules</li>
+                        <li>Compliance-ready reporting formats</li>
                     </ul>
                     
                     <a href="https://github.com/ritzy/secure-data-analyzer/releases/latest/download/SecureDataAnalyzer.exe" class="download-btn">
-                        <span class="icon">⬇️</span> Download Now (Windows)
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Coming Soon</h2>
-        
-        <div class="tools-grid">
-            <!-- Upcoming Tool 1 -->
-            <div class="tool-card">
-                <div class="card-header">
-                    <h3><span class="icon">🌐</span> Network Inspector</h3>
-                    <span class="version">v0.9.0 Beta</span>
-                </div>
-                <div class="card-body">
-                    <p>Comprehensive network analysis tool for monitoring, troubleshooting, and securing network infrastructure.</p>
-                    
-                    <ul class="features">
-                        <li>Real-time traffic analysis</li>
-                        <li>Deep packet inspection</li>
-                        <li>Anomaly detection</li>
-                        <li>Customizable dashboards</li>
-                    </ul>
-                    
-                    <a href="#" class="download-btn" style="background: #666; cursor: not-allowed;">
-                        <span class="icon">⏱️</span> Coming Soon
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Upcoming Tool 2 -->
-            <div class="tool-card">
-                <div class="card-header">
-                    <h3><span class="icon">💾</span> Disk Forensics</h3>
-                    <span class="version">v0.8.5 Beta</span>
-                </div>
-                <div class="card-body">
-                    <p>Advanced disk analysis tool for forensic investigators and data recovery specialists.</p>
-                    
-                    <ul class="features">
-                        <li>File carving and recovery</li>
-                        <li>Timeline analysis</li>
-                        <li>Metadata extraction</li>
-                        <li>Encrypted disk support</li>
-                    </ul>
-                    
-                    <a href="#" class="download-btn" style="background: #666; cursor: not-allowed;">
-                        <span class="icon">⏱️</span> Coming Soon
+                        Download Now (Windows)
                     </a>
                 </div>
             </div>
@@ -463,12 +415,12 @@
                 <a href="#">Contact</a>
             </div>
             
-            <p class="copyright">© 2023 Ritzy's Tools. All rights reserved. Designed for professionals.</p>
+            <p class="copyright">© 2023 Ritzy's Tools. All rights reserved.<br>Designed for professionals who demand excellence.</p>
         </div>
     </footer>
     
     <script>
-        // Simple animation for tool cards when they come into view
+        // Card animation when they come into view
         document.addEventListener('DOMContentLoaded', function() {
             const toolCards = document.querySelectorAll('.tool-card');
             
@@ -486,18 +438,6 @@
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(card);
-            });
-            
-            // Download button animation
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
-                    this.querySelector('.icon').textContent = '💾';
-                });
-                
-                btn.addEventListener('mouseleave', function() {
-                    this.querySelector('.icon').textContent = '⬇️';
-                });
             });
         });
     </script>
