@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritzy's Tools</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .tool-card {
+            background: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateX(5px);
+        }
+        .tool-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .download-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ritzy's Tools</h1>
+        <p>High-quality utilities for professionals</p>
+    </header>
+    
+    <div class="container">
+        <h2>Available Tools</h2>
+        
+        <div class="tool-card">
+            <h3>Ritzy Commander</h3>
+            <p>Advanced file management tool with batch processing capabilities.</p>
+            <p><strong>Latest version:</strong> 2.1.5</p>
+            <a href="https://download.ritzytools.com/ritzycmd" class="download-btn">Download</a>
+        </div>
+        
+        <div class="tool-card">
+            <h3>Data Inspector</h3>
+            <p>Forensic analysis tool for various data formats.</p>
+            <p><strong>Latest version:</strong> 1.4.3</p>
+            <a href="https://download.ritzytools.com/datainspector" class="download-btn">Download</a>
+        </div>
+        
+        <div class="tool-card">
+            <h3>Network Analyzer</h3>
+            <p>Network traffic inspection and analysis utility.</p>
+            <p><strong>Latest version:</strong> 3.0.2</p>
+            <a href="https://download.ritzytools.com/networkanalyzer" class="download-btn">Download</a>
+        </div>
+        
+        <h2>Other Projects</h2>
+        <ul>
+            <li><a href="https://github.com/ritzy/project-alpha">Project Alpha</a> - Data processing framework</li>
+            <li><a href="https://github.com/ritzy/project-beta">Project Beta</a> - Security analysis toolkit</li>
+        </ul>
+    </div>
+    
+    <footer>
+        <p>© 2023 Ritzy's Tools | All rights reserved</p>
+        <p>Contact: contact@ritzytools.com</p>
+    </footer>
+</body>
+</html>
