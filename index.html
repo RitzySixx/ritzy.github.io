@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritzy's Forensic Tools | Professional Utilities</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #0a0c15;
@@ -20,6 +21,7 @@
             --border: #1e2335;
             --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
             --transition: all 0.3s ease;
+            --border-radius: 10px;
         }
 
         * {
@@ -40,14 +42,15 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Header Styles */
         header {
             background: var(--bg-header);
-            padding: 2.5rem 0;
+            padding: 1.8rem 0;
             text-align: center;
             border-bottom: 1px solid var(--border);
             position: relative;
@@ -69,12 +72,12 @@
         .header-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -85,54 +88,84 @@
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
             margin: 0 auto;
             font-weight: 400;
-            line-height: 1.7;
+            line-height: 1.6;
             max-width: 700px;
+            padding: 0 20px;
         }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
         }
 
         .stat-item {
             background: rgba(22, 26, 38, 0.8);
             border: 1px solid var(--border);
-            padding: 15px 28px;
-            border-radius: 12px;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
             backdrop-filter: blur(5px);
-            min-width: 140px;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 8px;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
+        /* Tool Filter */
+        .tool-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1.5rem auto 0;
+            max-width: 800px;
+        }
+
+        .filter-btn {
+            background: rgba(22, 26, 38, 0.6);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Main Content */
         main {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .section-title {
-            font-size: 2.1rem;
-            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             text-align: center;
             color: var(--text-primary);
             position: relative;
@@ -142,23 +175,24 @@
         .section-title::after {
             content: "";
             display: block;
-            width: 80px;
+            width: 70px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            margin: 15px auto;
+            margin: 12px auto;
             border-radius: 2px;
         }
 
+        /* Compact Tools Grid */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
         }
 
         .tool-card {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -169,26 +203,26 @@
         }
 
         .tool-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
             border-color: rgba(93, 107, 255, 0.3);
         }
 
         .card-header {
-            padding: 1.8rem;
+            padding: 1.3rem 1.5rem;
             border-bottom: 1px solid var(--border);
             background: rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .tool-icon {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             background: rgba(93, 107, 255, 0.1);
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,23 +234,26 @@
         }
 
         .card-header h3 {
-            font-size: 1.7rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .version {
-            display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.95rem;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
             font-weight: 500;
+            margin-left: 8px;
         }
 
         .card-body {
-            padding: 1.8rem;
+            padding: 1.4rem 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -230,40 +267,42 @@
 
         .tool-description {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .features {
             list-style: none;
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 1.2rem 0;
             padding: 0;
             flex-grow: 1;
         }
 
         .features li {
-            padding: 8px 0;
-            padding-left: 28px;
+            padding: 6px 0;
+            padding-left: 25px;
             position: relative;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
 
         .features li::before {
-            content: "✓";
+            content: "•";
             position: absolute;
-            left: 0;
-            color: var(--success);
+            left: 10px;
+            color: var(--primary);
             font-weight: bold;
         }
 
         .requirements {
             background: rgba(0, 0, 0, 0.2);
             border-left: 3px solid var(--primary);
-            padding: 12px 15px;
+            padding: 10px 12px;
             border-radius: 4px;
-            margin: 0 0 1.5rem 0;
-            font-size: 0.9rem;
+            margin: 0 0 1.2rem 0;
+            font-size: 0.85rem;
         }
 
         .requirements strong {
@@ -272,7 +311,7 @@
 
         .download-container {
             margin-top: auto;
-            padding-top: 15px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -280,14 +319,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             background: var(--primary);
             color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
+            padding: 12px 15px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             text-align: center;
             border: none;
@@ -301,9 +340,10 @@
             transform: scale(1.02);
         }
 
+        /* Footer */
         footer {
             background: var(--bg-header);
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             border-top: 1px solid var(--border);
             margin-top: 2rem;
@@ -316,7 +356,7 @@
         }
 
         .footer-logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -327,19 +367,73 @@
 
         .copyright {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-top: 1.5rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            margin-top: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.6rem; }
-            .subtitle { font-size: 1.15rem; }
+            h1 { font-size: 2.4rem; }
+            .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .stat-value { font-size: 1.6rem; }
+            .stat-label { font-size: 0.8rem; }
             .tools-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 1.9rem; }
-            .stat-item { padding: 12px 20px; }
-            .card-header { flex-direction: column; text-align: center; }
-            .tool-icon { margin-bottom: 15px; }
+            .card-header { padding: 1.2rem; }
+            .card-body { padding: 1.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .section-title { font-size: 1.6rem; }
+            .stat-grid { grid-template-columns: 1fr 1fr; }
+            .tool-card { border-radius: 8px; }
+        }
+
+        /* Tool Tags */
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: rgba(93, 107, 255, 0.15);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(30, 35, 53, 0.6);
+            border-radius: var(--border-radius);
+            padding: 10px 15px;
+            margin: 0 0 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-item i {
+            color: var(--primary);
         }
     </style>
 </head>
@@ -350,19 +444,32 @@
                 <h1>Ritzy's Forensic Tools</h1>
                 <p class="subtitle">Professional utilities for digital forensics, incident response, and security analysis</p>
                 
-                <div class="stats">
+                <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-value">24K+</div>
                         <div class="stat-label">Downloads</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">4</div>
                         <div class="stat-label">Tools</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">98%</div>
                         <div class="stat-label">Satisfaction</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                </div>
+                
+                <div class="tool-filter">
+                    <button class="filter-btn active">All Tools</button>
+                    <button class="filter-btn">Memory Analysis</button>
+                    <button class="filter-btn">Registry Forensics</button>
+                    <button class="filter-btn">Hardware Security</button>
+                    <button class="filter-btn">Timeline Analysis</button>
+                    <button class="filter-btn">Windows Forensics</button>
                 </div>
             </div>
         </div>
@@ -375,33 +482,42 @@
             <!-- Tool 1: Process Executions Analyzer -->
             <div class="tool-card">
                 <div class="card-header">
-                    <div class="tool-icon">🔍</div>
+                    <div class="tool-icon"><i class="fas fa-search"></i></div>
                     <div class="tool-info">
-                        <h3>Service Execution Analyzer</h3>
-                        <span class="version">v1.1.5</span>
+                        <h3>Service Execution Analyzer <span class="version">v1.1.5</span></h3>
+                        <div class="tool-tags">
+                            <span class="tag">Memory Forensics</span>
+                            <span class="tag">Windows</span>
+                            <span class="tag">Incident Response</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-content">
-                        <p class="tool-description">A Windows forensic tool that scans process memory to discover file paths and detect potentially deleted files. Essential for incident response, malware analysis, and digital forensics investigations.</p>
+                        <div class="quick-info">
+                            <div class="info-item"><i class="fas fa-desktop"></i> Windows</div>
+                            <div class="info-item"><i class="fas fa-microchip"></i> 4GB+ RAM</div>
+                            <div class="info-item"><i class="fas fa-download"></i> 1.2 MB</div>
+                        </div>
+                        
+                        <p class="tool-description">Scans process memory to discover file paths and detect deleted files. Essential for incident response and malware analysis.</p>
                         
                         <ul class="features">
                             <li>Extracts file paths from process memory spaces</li>
-                            <li>Scans critical Windows services (Diagtrack, PcaSvc, etc.)</li>
+                            <li>Scans critical Windows services</li>
                             <li>Checks if discovered files are present or deleted</li>
                             <li>Color-coded output with visual indicators</li>
                             <li>Export functionality to timestamped text files</li>
-                            <li>Service name resolution for svchost.exe processes</li>
                         </ul>
                         
                         <div class="requirements">
-                            <strong>Requirements:</strong> Windows 7/Server 2008 or later, Administrator privileges, Visual C++ Runtime, 4GB+ RAM recommended
+                            <strong>Requirements:</strong> Windows 7/Server 2008+, Administrator privileges
                         </div>
                     </div>
                     
                     <div class="download-container">
                         <a href="https://github.com/ritzysixx/Process-Executions/releases/download/V1.1.5/ProcessMemoryScanner.exe" class="download-btn">
-                            Download Now (Windows)
+                            <i class="fas fa-download"></i> Download Now (Windows)
                         </a>
                     </div>
                 </div>
@@ -410,33 +526,42 @@
             <!-- Tool 2: Registry Executions -->
             <div class="tool-card">
                 <div class="card-header">
-                    <div class="tool-icon">📋</div>
+                    <div class="tool-icon"><i class="fas fa-database"></i></div>
                     <div class="tool-info">
-                        <h3>Registry Executions</h3>
-                        <span class="version">v1.2.0</span>
+                        <h3>Registry Executions <span class="version">v1.2.0</span></h3>
+                        <div class="tool-tags">
+                            <span class="tag">Registry Analysis</span>
+                            <span class="tag">Forensics</span>
+                            <span class="tag">Windows</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-content">
-                        <p class="tool-description">Lists cached programs in the registry with file metadata and existence checks. Provides powerful filtering and context menu options for forensic analysis.</p>
+                        <div class="quick-info">
+                            <div class="info-item"><i class="fas fa-desktop"></i> Windows</div>
+                            <div class="info-item"><i class="fas fa-memory"></i> 2GB RAM</div>
+                            <div class="info-item"><i class="fas fa-download"></i> 0.8 MB</div>
+                        </div>
+                        
+                        <p class="tool-description">Lists cached programs in the registry with file metadata and existence checks. Provides powerful filtering and context menu options.</p>
                         
                         <ul class="features">
-                            <li>Lists cached programs with file metadata (creation/modification dates)</li>
-                            <li>Dark and light theme toggle for user preference</li>
-                            <li>Advanced filtering options for targeted analysis</li>
-                            <li>Context menu for folder access, file execution, and properties</li>
-                            <li>Scans multiple registry locations for execution traces</li>
-                            <li>Supports AppCompatFlags, MuiCache, RecentDocs, and RunMRU keys</li>
+                            <li>Lists cached programs with file metadata</li>
+                            <li>Dark and light theme toggle</li>
+                            <li>Advanced filtering options</li>
+                            <li>Context menu for folder access</li>
+                            <li>Scans multiple registry locations</li>
                         </ul>
                         
                         <div class="requirements">
-                            <strong>Registry Locations Scanned:</strong> AppCompatFlags, Layers, MuiCache, RecentDocs, RunMRU, UserAssist, and more
+                            <strong>Registry Locations:</strong> AppCompatFlags, MuiCache, RecentDocs, RunMRU, etc.
                         </div>
                     </div>
                     
                     <div class="download-container">
                         <a href="https://github.com/ritzysixx/Registry-Executions/releases/download/Executions/Registry.Executions.exe" class="download-btn">
-                            Download Now (Windows)
+                            <i class="fas fa-download"></i> Download Now (Windows)
                         </a>
                     </div>
                 </div>
@@ -445,33 +570,42 @@
             <!-- Tool 3: DMA Catcher -->
             <div class="tool-card">
                 <div class="card-header">
-                    <div class="tool-icon">🛡️</div>
+                    <div class="tool-icon"><i class="fas fa-shield-alt"></i></div>
                     <div class="tool-info">
-                        <h3>DMA Detector (BETA)</h3>
-                        <span class="version">v1.0.0</span>
+                        <h3>DMA Detector <span class="version">v1.0.0</span></h3>
+                        <div class="tool-tags">
+                            <span class="tag">Hardware Security</span>
+                            <span class="tag">BETA</span>
+                            <span class="tag">PowerShell</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-content">
-                        <p class="tool-description">PowerShell script to detect DMA-capable devices and validate them with DeviceHunt. Identifies potential security risks from USB and PCI hardware.</p>
+                        <div class="quick-info">
+                            <div class="info-item"><i class="fas fa-terminal"></i> PowerShell</div>
+                            <div class="info-item"><i class="fas fa-server"></i> Any RAM</div>
+                            <div class="info-item"><i class="fas fa-download"></i> 5 KB</div>
+                        </div>
+                        
+                        <p class="tool-description">PowerShell script to detect DMA-capable devices and validate them with DeviceHunt. Identifies potential security risks.</p>
                         
                         <ul class="features">
-                            <li>Scans all connected devices via Win32_PnPEntity</li>
-                            <li>Classifies USB, PCI, and other device types</li>
-                            <li>Validates devices with DeviceHunt using vendor/product IDs</li>
-                            <li>Automatically manages working directory at C:\ss5</li>
-                            <li>Saves comprehensive logs to DMA_Info.txt</li>
-                            <li>Generates direct links to DeviceHunt for further research</li>
+                            <li>Scans all connected devices</li>
+                            <li>Classifies USB, PCI and other devices</li>
+                            <li>Validates with DeviceHunt</li>
+                            <li>Saves comprehensive logs</li>
+                            <li>Generates direct research links</li>
                         </ul>
                         
                         <div class="requirements">
-                            <strong>Usage:</strong> Run PowerShell as Administrator, paste and execute script, review DMA_Info.txt
+                            <strong>Usage:</strong> Run PowerShell as Administrator
                         </div>
                     </div>
                     
                     <div class="download-container">
                         <a href="https://github.com/ritzysixx/dma-catcher/releases/download/V1.0.0/DMA_Catcher.ps1" class="download-btn">
-                            Download Now (PowerShell)
+                            <i class="fas fa-download"></i> Download Now (PowerShell)
                         </a>
                     </div>
                 </div>
@@ -480,42 +614,48 @@
             <!-- Tool 4: Timeline Explorer -->
             <div class="tool-card">
                 <div class="card-header">
-                    <div class="tool-icon">📅</div>
+                    <div class="tool-icon"><i class="fas fa-timeline"></i></div>
                     <div class="tool-info">
-                        <h3>Timeline Explorer</h3>
-                        <span class="version">v2.0.0.1</span>
-                        <div class="credit">by Eric Zimmerman</div>
+                        <h3>Timeline Explorer <span class="version">v2.0.0.1</span></h3>
+                        <div class="tool-tags">
+                            <span class="tag">Timeline Analysis</span>
+                            <span class="tag">Forensics</span>
+                            <span class="tag">Visualization</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-content">
-                        <p class="tool-description">Eric Zimmerman's Timeline Explorer is a powerful forensic tool designed to visualize and analyze timeline data from various sources. It transforms raw event data into an intuitive chronological view, making it easier to identify patterns, sequences, and anomalies in forensic investigations.</p>
+                        <div class="quick-info">
+                            <div class="info-item"><i class="fas fa-desktop"></i> Windows</div>
+                            <div class="info-item"><i class="fas fa-microchip"></i> 2GB+ RAM</div>
+                            <div class="info-item"><i class="fas fa-download"></i> 15 MB</div>
+                        </div>
+                        
+                        <p class="tool-description">Visualize and analyze timeline data from various sources. Transform raw event data into chronological views.</p>
                         
                         <ul class="features">
-                            <li>Visualize events in chronological order with adjustable time increments</li>
-                            <li>Import data from multiple sources (CSV, JSON, XML, etc.)</li>
-                            <li>Group events by time ranges (minutes, hours, days)</li>
-                            <li>Filter events by type, source, or keywords</li>
-                            <li>Export results to multiple formats for reporting</li>
-                            <li>Identify temporal relationships between events</li>
-                            <li>Highlight significant events with custom markers</li>
+                            <li>Visualize events chronologically</li>
+                            <li>Import from multiple sources</li>
+                            <li>Group events by time ranges</li>
+                            <li>Filter events by type or keywords</li>
+                            <li>Export to multiple formats</li>
                         </ul>
                         
                         <div class="requirements">
-                            <strong>Requirements:</strong> Windows 7 or later, .NET Framework 4.8, 2GB+ RAM recommended
+                            <strong>Requirements:</strong> Windows 7+, .NET Framework 4.8
                         </div>
                         
-                        <div class="official-link">
+                        <div class="requirements">
                             <strong>Official Site:</strong> 
-                            <a href="https://ericzimmerman.github.io/" target="_blank">https://ericzimmerman.github.io/</a>
+                            <a href="https://ericzimmerman.github.io/" target="_blank" style="color: var(--primary);">ericzimmerman.github.io</a>
                         </div>
                     </div>
                     
                     <div class="download-container">
                         <a href="https://f001.backblazeb2.com/file/EricZimmermanTools/net6/TimelineExplorer.zip" class="download-btn">
-                            Download Timeline Explorer (Windows)
+                            <i class="fas fa-download"></i> Download Timeline Explorer
                         </a>
-                        <div class="credit-note">Tool by Eric Zimmerman - Used with permission</div>
                     </div>
                 </div>
             </div>
@@ -532,8 +672,8 @@
     </footer>
     
     <script>
-        // Card animation when they come into view
         document.addEventListener('DOMContentLoaded', function() {
+            // Card animations
             const toolCards = document.querySelectorAll('.tool-card');
             
             const observer = new IntersectionObserver((entries) => {
@@ -552,6 +692,22 @@
                 observer.observe(card);
             });
             
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // In a real implementation, this would filter tools
+                    // For this demo, we'll just show a notification
+                    const filterText = button.textContent;
+                    if (filterText !== "All Tools") {
+                        alert(`Filtering tools by category: ${filterText}`);
+                    }
+                });
+            });
+            
             // Header animation
             const header = document.querySelector('header');
             let prevScrollPos = window.pageYOffset;
@@ -565,33 +721,6 @@
                 }
                 prevScrollPos = currentScrollPos;
             });
-            
-            // Ensure all cards have the same height
-            function equalizeCardHeights() {
-                const cards = document.querySelectorAll('.tool-card');
-                let maxHeight = 0;
-                
-                // Reset heights first
-                cards.forEach(card => {
-                    card.style.height = 'auto';
-                });
-                
-                // Find the tallest card
-                cards.forEach(card => {
-                    if (card.offsetHeight > maxHeight) {
-                        maxHeight = card.offsetHeight;
-                    }
-                });
-                
-                // Set all cards to the tallest height
-                cards.forEach(card => {
-                    card.style.height = maxHeight + 'px';
-                });
-            }
-            
-            // Run on load and resize
-            window.addEventListener('load', equalizeCardHeights);
-            window.addEventListener('resize', equalizeCardHeights);
         });
     </script>
 </body>
