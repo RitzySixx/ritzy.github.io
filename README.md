@@ -1,6 +1,6 @@
 # Ritzy's Forensic Tools
 
-![Project Banner]([https://i.imgur.com/JZQZQZQ.png](https://sdmntprcentralus.oaiusercontent.com/files/00000000-a678-61f5-b069-f994de733574/raw?se=2025-06-26T03%3A47%3A56Z&sp=r&sv=2024-08-04&sr=b&scid=4429251f-df7d-528e-89fe-e30425e9faed&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-25T20%3A10%3A00Z&ske=2025-06-26T20%3A10%3A00Z&sks=b&skv=2024-08-04&sig=AJQgIWVHE7KINV8FvVD5LZz6fYqaBJ4W/UkL0UMmFwA%3D))
+![image](https://github.com/user-attachments/assets/b16e9b17-381d-4ae8-a18d-9f82c9b46e81)
 
 A comprehensive collection of professional digital forensics and security analysis utilities designed to help investigators uncover critical evidence and analyze system artifacts.
 
